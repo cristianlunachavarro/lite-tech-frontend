@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+import Posts from "./components/posts";
+import Post from "./components/post";
+import Header from "./components/header";
+import Loader from "./components/loader";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
+import { useEffect } from "react";
+import Footer from "./components/footer";
 
-function App() {
+const App = () => {
+  const isLoading = useSelector((state: RootState) => state.posts.loading);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/posts/") {
+      document.body.style.backgroundColor = "var(--black-color)";
+    } else {
+      document.body.style.backgroundColor = "var(--white-color)";
+    }
+  }, [location]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <div>
+        <Routes>
+          <Route path="/" element={<Navigate to="/posts" replace />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:id" element={<Post />} />
+        </Routes>
+      </div>
+      <Footer />
+      {isLoading && <Loader />}
     </div>
   );
-}
+};
 
 export default App;

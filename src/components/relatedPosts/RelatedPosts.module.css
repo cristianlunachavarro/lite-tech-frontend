@@ -1,0 +1,85 @@
+.container {
+  margin: 30px auto;
+  max-width: 1068px;
+}
+
+.relatedPostsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 378px;
+  gap: 20px;
+}
+
+.relatedPost {
+  position: relative;
+  background-color: lightgray;
+}
+
+.relatedPost img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.relatedPost h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  margin: 5% 10%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.relatedPost h3 p {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 0;
+  cursor: pointer;
+  margin: 15px 0 0 0;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h5 {
+  cursor: pointer;
+}
+
+.arrow {
+  color: var(--secundary-color);
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 30px;
+  }
+  .relatedPostsContainer {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .relatedPost {
+    flex: 0 0 85%; /* Hace que cada post ocupe el 85% del ancho */
+    height: 100%; /* Asegura que el contenedor ocupe el 100% del alto disponible */
+    scroll-snap-align: start; /* Alinea el post al inicio */
+  }
+
+  .relatedPost img {
+    width: 100%;
+    height: 60vh; /* Opción de ocupar toda la altura de la ventana */
+    object-fit: cover; /* Asegura que la imagen mantenga sus proporciones y cubra el contenedor */
+  }
+
+  .relatedPost h3 {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
