@@ -1,0 +1,39 @@
+.postContainer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--white-color);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  color: var(--back-color);
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 5% 60% 5% 5%;
+}
+
+.postContainer p {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 5%;
+}
+
+@media (max-width: 768px) {
+  .title {
+    margin: 7.5%;
+  }
+}

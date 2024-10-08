@@ -1,0 +1,108 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  border: 2px solid var(--black-color);
+  padding: 20px;
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.9);
+  max-width: 560px;
+  width: 370px;
+}
+
+.subtitle {
+  font-weight: 100;
+  font-size: 12px;
+  text-align: center;
+}
+
+.error {
+  color: var(--error-color);
+  font-weight: 100;
+  font-size: 12px;
+  margin: 0;
+  height: 16px;
+  width: 75%;
+}
+
+.fileLabel {
+  border: 2px solid var(--black-color);
+  text-align: center;
+  margin: 10px 10px 5px 10px;
+  padding: 10px;
+  width: 70%;
+  cursor: pointer;
+}
+
+input {
+  border: 2px solid var(--black-color);
+  outline: none;
+  margin: 10px 10px 5px 10px;
+  padding: 10px;
+  width: 70%;
+}
+
+textarea {
+  border: 2px solid var(--black-color);
+  outline: none;
+  margin: 10px 10px 5px 10px;
+  padding: 10px;
+  width: 70%;
+  max-width: 70%;
+}
+
+.errorInput {
+  border: 2px solid red;
+  outline: none;
+}
+
+.confirmButton {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  margin: 10px;
+  padding: 10px 15px;
+  width: 40%;
+  cursor: pointer;
+}
+
+.closeButton {
+  align-self: end;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.progressContainer {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progressBar {
+  height: 10px;
+  background-color: #76c7c0;
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    max-width: 320px;
+    width: 280px;
+  }
+}
