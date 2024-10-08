@@ -107,10 +107,7 @@ export const createPostRelated = (
   };
 };
 
-export const uploadImage = async (
-  file: File
-  // onUploadProgress: (progress: number) => void
-): Promise<string> => {
+export const uploadImage = async (file: File): Promise<string> => {
   const formData = new FormData();
   formData.append("file", file);
   try {
@@ -118,24 +115,10 @@ export const uploadImage = async (
       headers: {
         "Content-Type": "multipart/form-data",
       },
-      // onUploadProgress: (progressEvent) => {
-      //   const total = progressEvent.total || 0;
-      //   const current = progressEvent.loaded;
-
-      //   if (total > 0) {
-      //     const progress = (current / total) * 100;
-
-      //     // Simular un delay de 100 ms antes de actualizar el progreso
-      //     setTimeout(() => {
-      //       console.log(`Upload Progress: ${progress}`);
-      //       onUploadProgress(progress);
-      //     }, 1000); // Ajusta el tiempo según sea necesario
-      //   }
-      // },
     });
     return data.data.imageUrl;
   } catch (error) {
     console.error("Error uploading image", error);
-    return ""; // Ajusta según la respuesta de error que desees
+    return "";
   }
 };

@@ -44,12 +44,12 @@ const Posts = () => {
                 <h2>
                   {post.title}
                   <br />
-                  <h4
+                  <p
                     onClick={() => handleNavigate(post._id!)}
                     className={linkClass}
                   >
                     Read <span className={styles.arrow}>→</span>
-                  </h4>
+                  </p>
                 </h2>
               </div>
             );

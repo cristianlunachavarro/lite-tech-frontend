@@ -1,8 +1,7 @@
 import { FC, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createPostRelated, uploadImage } from "../../actions/posts";
-import { AppDispatch, RootState } from "../../store";
-import { useNavigate } from "react-router-dom";
+import { AppDispatch } from "../../store";
 import styles from "./Modal.module.css";
 
 interface ModalProps {
@@ -11,7 +10,6 @@ interface ModalProps {
 
 const Modal: FC<ModalProps> = ({ onClose }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
 
   const [title, setTitle] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);
@@ -22,8 +20,6 @@ const Modal: FC<ModalProps> = ({ onClose }) => {
   const [imageError, setImageError] = useState<string>("");
 
   const [postSuccess, setPostSuccess] = useState<boolean>(false);
-
-  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const validPost = () => {
     let isValid = true;
@@ -56,7 +52,6 @@ const Modal: FC<ModalProps> = ({ onClose }) => {
       setTitle("");
       setImage(null);
       setArticle("");
-      setUploadProgress(0);
     }
   };
 
@@ -143,17 +138,6 @@ const Modal: FC<ModalProps> = ({ onClose }) => {
           />
         </label>
         <p className={styles.error}>{imageError}</p>
-
-        {/* {uploadProgress > 0 && (
-          <div className={styles.progressContainer}>
-            <div
-              className={styles.progressBar}
-              style={{ width: `${uploadProgress}%` }}
-            />
-            <span>{uploadProgress.toFixed(0)}%</span>
-          </div>
-        )} */}
-
         <button onClick={handleSubmit} className={styles.confirmButton}>
           Confirm
         </button>

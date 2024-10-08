@@ -32,6 +32,8 @@ const RelatedPosts: FC<RelatedPostsProps> = ({ actualPostId }) => {
     dispatch(fetchPostsRelated(actualPostId));
   }, [dispatch, actualPostId]);
 
+  console.log('related', relatedPosts)
+
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
